@@ -1,22 +1,17 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RegionModule } from './region/region.module';
 import { AgeModule } from './age/age.module';
 import { PopulationModule } from './population/population.module';
+import dbConfig from './database/config/db-config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'postgres_db',
-      port: 5432,
-      username: 'postgres',
-      password: '123456',
-      database: 'chart_db',
-      entities: [],
-      synchronize: true,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [dbConfig],
     }),
     RegionModule,
     AgeModule,
