@@ -1,15 +1,26 @@
-version: '3.7'
+version: '3'
+
 services:
-  postgres_db:
-    image: postgres:13
-    container_name: postgres_db
+  app:
+    build: .
     ports:
-      - '5432:5432'
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres_db
+
+  postgres_db:
+    image: postgres:latest
+    restart: always
     environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
       POSTGRES_DB: chart_db
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password_chart
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 volumes:
   postgres_data:
