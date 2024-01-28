@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { PopulationSeedModule } from './population/population-seed.module';
-import { TypeOrmConfigService } from '../config/type-orm-config.service';
+import { TypeOrmConfigService } from '../type-orm-config.service';
 
 @Module({
   imports: [
@@ -17,4 +17,4 @@ import { TypeOrmConfigService } from '../config/type-orm-config.service';
     PopulationSeedModule,
   ],
 })
-export class AppModule {}
+export class SeedModule {}

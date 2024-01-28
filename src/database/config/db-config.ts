@@ -3,7 +3,7 @@ import { DatabaseConfig } from './db-config.type';
 
 export default registerAs<DatabaseConfig>('database', () => {
   return {
-    type: process.env.TYPE,
+    type: process.env.DB_TYPE,
     host: process.env.DB_HOST || 'localhost',
     port: parseInt(process.env.DB_PORT),
     username: process.env.DB_USERNAME,

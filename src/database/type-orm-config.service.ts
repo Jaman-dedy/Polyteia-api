@@ -14,8 +14,14 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       username: this.configService.get<string>('DB_USERNAME', 'your_username'),
       password: this.configService.get<string>('DB_PASSWORD', 'your_password'),
       database: this.configService.get<string>('DB_NAME', 'your_database_name'),
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+      migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+      cli: {
+        entitiesDir: 'src',
+        migrationsDir: 'src/database/migrations',
+        subscribersDir: 'subscriber',
+      },
       synchronize: this.configService.get<boolean>('DB_SYNCHRONIZE', true),
-    };
+    } as TypeOrmModuleOptions;
   }
 }
