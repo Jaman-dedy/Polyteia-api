@@ -14,12 +14,11 @@ export class PopulationSeederService {
   async run() {
     try {
       const populationData = [];
-      const NUM_ENTRIES = 10;
+      const NUM_ENTRIES = 100;
 
       for (let i = 0; i < NUM_ENTRIES; i++) {
         const data = new PopulationData();
-        data.numericData = faker.number.int();
-
+        data.numericData = faker.number.int({ min: 1, max: 1000 });
         populationData.push(data);
       }
 
