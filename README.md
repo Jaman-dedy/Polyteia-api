@@ -34,7 +34,7 @@ The Polyteia API is a RESTful API that provides endpoints to manage fetch numeri
 1. **Clone the Repository:**
 
    ```bash
-   git clone git@github.com:Jaman-dedy/mymo-api.git
+   git clone git@github.com:Jaman-dedy/Polyteia-api.git
 
 
 2. **Navigate to the Project Directory:**
@@ -50,7 +50,7 @@ cd your-project
 npm install
 
 ```
-==>> Make sure the `.env` file before running docker
+==>> Make sure to have the `.env` file before running docker
 ## Running the Server
 
 2. **With docker**
