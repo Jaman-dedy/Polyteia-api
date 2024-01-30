@@ -19,7 +19,7 @@ export class PopulationDataService {
   }> {
     try {
       const data = await this.populationDataRepository.find();
-      const numericData = data.map((item) => item.numericData);
+      const numericData = data.map((item) => Number(item.numericData));
       return { status: 'success', data: numericData };
     } catch (error) {
       return { status: 'error', data: [], message: error.message };
